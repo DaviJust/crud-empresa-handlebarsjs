@@ -41,7 +41,7 @@ app.post('/client/insertclient', (req,res)=>{
     const email = req.body.email
     const telefone = req.body.telefone
     const idade = req.body.idade
-    const sql = `INSERT INTO cliente (nome, email, telefone, idade) VALUES ( '${nome}','${email}','${telefone}','${idade}' )`
+    const sql = `INSERT INTO empresa (nome, email, telefone, idade) VALUES ( '${nome}','${email}','${telefone}','${idade}' )`
     conn.query(sql, function(err){
         if (err){
             console.log(err)
@@ -53,8 +53,8 @@ app.post('/client/insertclient', (req,res)=>{
 })
 
 // consulta geral
-app.get('/clientes', (req,res) => {
-    const sql = 'SELECT * FROM cliente'
+app.get('/empresas', (req,res) => {
+    const sql = 'SELECT * FROM empresa'
 
     conn.query(sql, function(err, data){
         if(err){
@@ -65,33 +65,33 @@ app.get('/clientes', (req,res) => {
 
         console.log(listar)
 
-        res.render('clientes', { layout: false, listar})
+        res.render('empresas', { layout: false, listar})
     })
 })
 
 
-// consuta um registro pelo id (cliente.handlebars)
-app.get('/cliente/:id', (req,res) => {
+// consuta um registro pelo id (empresa.handlebars)
+app.get('/empresa/:id', (req,res) => {
     const id = req.params.id
 
-    const sql = `SELECT * FROM cliente WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE id = ${id}`
 
     conn.query(sql, function(err, data){
         if(err){
             console.log(err)
             return
         }
-        const listarCliente = data[0]
-        res.render('cliente',{ layout:false, listarCliente })
+        const listarempresa = data[0]
+        res.render('empresa',{ layout:false, listarempresa })
     })
 })
 
 //ROTA PARA MOSTRAR OS DADOS QUE SERAO EDITADOS  NO  REGISTRO (SEM A VIEW)
 
-app.get('/cliente/edit/:id', (req, res) =>{
+app.get('/empresa/edit/:id', (req, res) =>{
     const id = req.params.id
 
-    const sql = `SELECT * FROM cliente WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE id = ${id}`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -99,8 +99,8 @@ app.get('/cliente/edit/:id', (req, res) =>{
             return
         }
     
-        const cliente = data[0]
-        res.render('edit', {layout: false, cliente})
+        const empresa = data[0]
+        res.render('edit', {layout: false, empresa})
     })
 })
 
@@ -113,24 +113,24 @@ app.post('/alterar/updateclient', (req,res) => {
     const email = req.body.email
     const telefone = req.body.telefone
     const idade = req.body.idade
-    const sql = `UPDATE cliente SET nome = '${nome}', email = '${email}', telefone = '${telefone}', idade= '${idade}' WHERE id = '${id}' `
+    const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', idade= '${idade}' WHERE id = '${id}' `
 
     conn.query(sql, function(err){
         if (err){
             console.log(err)
         }
 
-        res.redirect(`/cliente/${id}`)
+        res.redirect(`/empresa/${id}`)
         console.log("Alterado com sucesso")
 })
 })
 
-//Remover cliente
+//Remover empresa
 
-app.get('/cliente/remove/:id', (req,res) =>{
+app.get('/empresa/remove/:id', (req,res) =>{
     const id =req.params.id
 
-    const sql = `DELETE FROM cliente WHERE id = ${id} `
+    const sql = `DELETE FROM empresa WHERE id = ${id} `
 
     conn.query(sql, function(err){
         if(err){
@@ -138,7 +138,7 @@ app.get('/cliente/remove/:id', (req,res) =>{
             return 
         }
         
-        res.redirect('/clientes')
+        res.redirect('/empresas')
         console.log("excluido com sucesso")
 
     })
@@ -148,7 +148,7 @@ app.get('/cliente/remove/:id', (req,res) =>{
 app.post('/busc/', (req, res) => {
     const id = req.body.id
     
-    const sql = `SELECT * FROM cliente WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE id = ${id}`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -156,8 +156,8 @@ app.post('/busc/', (req, res) => {
             return
         }
 
-        const listarCliente = data[0]
-        res.render('cliente', {  layout: false, listarCliente } )
+        const listarempresa = data[0]
+        res.render('empresa', {  layout: false, listarempresa } )
 
     })
 })
@@ -168,10 +168,10 @@ app.post('/busc/', (req, res) => {
 // conexao banco de dados
 const conn = mysql.createConnection({
     host: 'localhost',    
-    port: '3307',
+    port: '3306',
     user:'root',
     password: '',
-    database: 'projnode1'
+    database: 'infancia_girassol'
 
 })
 
