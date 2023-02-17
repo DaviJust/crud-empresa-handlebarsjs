@@ -36,12 +36,10 @@ app.use(
 )
 
 // inserir dados (rota)
-app.post('/client/insertclient', (req,res)=>{
-    const nome = req.body.nome
-    const email = req.body.email
-    const telefone = req.body.telefone
-    const idade = req.body.idade
-    const sql = `INSERT INTO empresa (nome, email, telefone, idade) VALUES ( '${nome}','${email}','${telefone}','${idade}' )`
+app.post('/empresa/insertEmpresa', (req,res)=>{
+    const { CNPJ, nome,email,telefone,local} = req.body
+    
+    const sql = `INSERT INTO empresa (CNPJ, nome, email, local, telefone) VALUES ( '${CNPJ}' ,'${nome}','${email}','${telefone}','${local}' )`
     conn.query(sql, function(err){
         if (err){
             console.log(err)
@@ -71,18 +69,18 @@ app.get('/empresas', (req,res) => {
 
 
 // consuta um registro pelo id (empresa.handlebars)
-app.get('/empresa/:id', (req,res) => {
-    const id = req.params.id
+app.get('/empresa/:CNPJ', (req,res) => {
+    const CNPJ = req.params.CNPJ
 
-    const sql = `SELECT * FROM empresa WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE CNPJ = ${CNPJ}`
 
     conn.query(sql, function(err, data){
         if(err){
             console.log(err)
             return
         }
-        const listarempresa = data[0]
-        res.render('empresa',{ layout:false, listarempresa })
+        const listarEmpresa = data[0]
+        res.render('empresa',{ layout:false, listarEmpresa })
     })
 })
 

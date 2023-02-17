@@ -1,27 +1,30 @@
 <h1>Cadastro de Empresas</h1>
 <hr>
-<form action="client/insertclient" method="post">
+<form action="empresa/insertEmpresa" method="post">
+        <div class="form-control">
+            <label for="CNPJ" class="form-label">CNPJ</label>
+            <input type="number" name="CNPJ" class="form-control" id="CNPJ" t>
+          </div>
         <div class="form-control">
             <label for="Nome" class="form-label">Nome</label>
             <input type="text" name="nome" class="form-control" id="Nome">
           </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email </label>
-          <input type="text"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">Não compartilhamos seus dados com ninguém.</div>
+          <label for="email" class="form-label">Email </label>
+          <input type="text"  name="email" class="form-control" id="email" aria-describedby="emailHelp">          
         </div>
         <div class="mb-3">
-            <label for="Telefone" class="form-label">Telefone</label>
-            <input type="text" name="telefone" class="form-control" id="Telefone">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" name="telefone" class="form-control" id="telefone">
           </div>
           <div class="mb-3">
-            <label for="Idade" class="form-label">Idade</label>
-            <input type="text" name="idade" class="form-control" id="Idade">
+            <label for="local" class="form-label">Local</label>
+            <input type="text" name="local" class="form-control" id="local">
           </div>
         <button type="submit" class="btn btn-primary" >Cadastrar</button>
       </form>
 
-      <a href="/clientes/"> Clientes cadastrados</a>
+      <a href="/empresas/"> Empresas cadastrados</a>
 
       <a href="/busca">Buscar cliente cadastrado</a>
 </div>

@@ -3,8 +3,8 @@
 <class="prod-container">
     {{#each listar}}
 
-    <strong>#{{this.id}} </strong> - 
-    Nome: <a href="/cliente/{{this.id}}"> {{nome}} </a> - email: {{email}} - Telefone {{telefone}} - idade {{idade}} <br>
+    <strong>#{{this.CNPJ}} </strong> - 
+    Nome: <a href="/empresa/{{this.CNPJ}}"> {{nome}} </a> - email: {{email}} - Telefone {{telefone}} - local {{local}} <br>
 
     {{/each}}
     </div>
