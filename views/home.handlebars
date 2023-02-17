@@ -1,0 +1,27 @@
+<h1>Cadastro de Clienetes</h1>
+<hr>
+<form action="client/insertclient" method="post">
+        <div class="form-control">
+            <label for="Nome" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" id="Nome">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email </label>
+          <input type="text"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Não compartilhamos seus dados com ninguém.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Telefone" class="form-label">Telefone</label>
+            <input type="text" name="telefone" class="form-control" id="Telefone">
+          </div>
+          <div class="mb-3">
+            <label for="Idade" class="form-label">Idade</label>
+            <input type="text" name="idade" class="form-control" id="Idade">
+          </div>
+        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+      </form>
+
+      <a href="/clientes/"> Clientes cadastrados</a>
+
+      <a href="/busca">Buscar cliente cadastrado</a>
+</div>

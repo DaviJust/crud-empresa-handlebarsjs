@@ -1,0 +1,10 @@
+<h1> Clientes cadastrados</h1>
+
+<class="prod-container">
+    {{#each listar}}
+
+    <strong>#{{this.id}} </strong> - 
+    Nome: <a href="/cliente/{{this.id}}"> {{nome}} </a> - email: {{email}} - Telefone {{telefone}} - idade {{idade}} <br>
+
+    {{/each}}
+    </div>
