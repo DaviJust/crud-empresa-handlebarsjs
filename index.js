@@ -81,8 +81,7 @@ app.get('/empresas', (req,res) => {
             return
         }
         const listar = data
-
-        console.log(listar)
+ 
 
         res.render('empresas', { layout: false, listar})
     })
@@ -129,16 +128,18 @@ app.post('/alterar/updateEmpresa', (req,res) => {
 
     
     const { CNPJ, nome,email,telefone,local} = req.body
+    
 
     const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', local= '${local}' WHERE CNPJ = '${CNPJ}' `
 
+    
     conn.query(sql, function(err){
         if (err){
             console.log(err)
         }
 
-        res.redirect(`/empresa/${CNPJ}`)
         console.log("Alterado com sucesso")
+        res.redirect(`/empresa/${CNPJ}`)
 })
 })
 
