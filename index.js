@@ -39,7 +39,7 @@ app.use(
 app.post('/empresa/insertEmpresa', (req,res)=>{
     const { CNPJ, nome,email,telefone,local} = req.body
     
-    const sql = `INSERT INTO empresa (CNPJ, nome, email, local, telefone) VALUES ( '${CNPJ}' ,'${nome}','${email}','${telefone}','${local}' )`
+    const sql = `INSERT INTO empresa (CNPJ, nome, email, local, telefone) VALUES ( '${CNPJ}' ,'${nome}','${email}','${local}','${telefone}' )`
     conn.query(sql, function(err){
         if (err){
             console.log(err)
@@ -72,7 +72,7 @@ app.get('/empresas', (req,res) => {
 app.get('/empresa/:CNPJ', (req,res) => {
     const CNPJ = req.params.CNPJ
 
-    const sql = `SELECT * FROM empresa WHERE CNPJ = ${CNPJ}`
+    const sql = `SELECT * FROM empresa WHERE CNPJ = '${CNPJ}'`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -86,10 +86,10 @@ app.get('/empresa/:CNPJ', (req,res) => {
 
 //ROTA PARA MOSTRAR OS DADOS QUE SERAO EDITADOS  NO  REGISTRO (SEM A VIEW)
 
-app.get('/empresa/edit/:id', (req, res) =>{
-    const id = req.params.id
+app.get('/empresa/edit/:CNPJ', (req, res) =>{
+    const CNPJ = req.params.CNPJ 
 
-    const sql = `SELECT * FROM empresa WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE CNPJ = '${CNPJ}'`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -97,38 +97,37 @@ app.get('/empresa/edit/:id', (req, res) =>{
             return
         }
     
-        const empresa = data[0]
+        const empresa = data[0] 
         res.render('edit', {layout: false, empresa})
     })
 })
 
 //ROTA QUE EDITA OS DADOS
 
-app.post('/alterar/updateclient', (req,res) => {
+app.post('/alterar/updateEmpresa', (req,res) => {
 
-    const id = req.body.id
-    const nome = req.body.nome
-    const email = req.body.email
-    const telefone = req.body.telefone
-    const idade = req.body.idade
-    const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', idade= '${idade}' WHERE id = '${id}' `
+    
+    const { CNPJ, nome,email,telefone,local} = req.body
+    console.log("🚀 ~ file: index.js:111 ~ app.post ~ req.body", req.body)
+
+    const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', local= '${local}' WHERE CNPJ = '${CNPJ}' `
 
     conn.query(sql, function(err){
         if (err){
             console.log(err)
         }
 
-        res.redirect(`/empresa/${id}`)
+        res.redirect(`/empresa/${CNPJ}`)
         console.log("Alterado com sucesso")
 })
 })
 
 //Remover empresa
 
-app.get('/empresa/remove/:id', (req,res) =>{
-    const id =req.params.id
+app.get('/empresa/remove/:CNPJ', (req,res) =>{
+    const CNPJ =req.params.CNPJ
 
-    const sql = `DELETE FROM empresa WHERE id = ${id} `
+    const sql = `DELETE FROM empresa WHERE CNPJ = '${CNPJ}' `
 
     conn.query(sql, function(err){
         if(err){
@@ -144,9 +143,9 @@ app.get('/empresa/remove/:id', (req,res) =>{
 
 //rota de busca (busc) que enviar para view produto produto.handlebars
 app.post('/busc/', (req, res) => {
-    const id = req.body.id
+    const CNPJ = req.body.CNPJ
     
-    const sql = `SELECT * FROM empresa WHERE id = ${id}`
+    const sql = `SELECT * FROM empresa WHERE CNPJ = ${CNPJ}`
 
     conn.query(sql, function(err, data){
         if(err){

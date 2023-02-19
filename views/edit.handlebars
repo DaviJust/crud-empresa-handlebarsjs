@@ -1,26 +1,30 @@
-<h1> Editar Clientes</h1>
+<h1> Editar Empresa</h1>
 <hr>
 
-<form action="/alterar/updateclient" method="POST"> 
+<form action="/alterar/updateEmpresa" method="POST"> 
 <div class="form control">
-    <input type="hidden" name="id" id="id" value="{{cliente.id}}">
-    <label for="nome">name</label>
-    <input type="text" name="nome" placeholder="Digite aqui o nome do cliente" value="{{cliente.nome}}">
+    <input type="hidden" name="CNPJ" id="CNPJ" value="{{empresa.CNPJ}}">
+    <label for="nome">nome</label>
+    <input type="text" name="nome" placeholder="Digite aqui o nome do empresa"
+     value="{{empresa.nome}}">
 </div>
 
 <div class="form control">
     <label for="email">email</label>
-    <input type="text" name="email" placeholder="Digite aqui o email do cliente" value="{{cliente.email}}">
+    <input type="text" name="email" placeholder="Digite aqui o email do empresa"
+     value="{{empresa.email}}">
 </div>
 
 <div class="form control">
     <label for="telefone">telefone</label>
-    <input type="text" name="telefone" placeholder="Digite aqui o telefone do cliente" value="{{cliente.telefone}}">
+    <input type="text" name="telefone" placeholder="Digite aqui o telefone do empresa" 
+    value="{{empresa.telefone}}">
 </div>
 
 <div class="form control">
-    <label for="idade">idade</label>
-    <input type="text" name="idade" placeholder="Digite aqui o idade do cliente" value="{{cliente.idade}}">
+    <label for="local">local</label>
+    <input type="text" name="local" placeholder="Digite aqui o local do empresa" 
+    value="{{empresa.local}}">
 </div>
 
 <input type="Submit" value="Editar">
