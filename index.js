@@ -13,6 +13,15 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
 
+
+app.use(
+    express.urlencoded({
+        extended: true
+        
+}) 
+)
+
+
 //rotas
 
 //rota inicio
@@ -28,12 +37,24 @@ app.get('/busca', (req, res) => {
 
 })
 
-app.use(
-    express.urlencoded({
-        extended: true
-        
-}) 
-)
+//rota de busca (busc) que enviar para view produto produto.handlebars
+app.post('/buscar/', (req, res) => {
+    
+    const {busca} = req.body
+    
+    const sql = `SELECT * FROM empresa WHERE CNPJ = '${busca}' OR nome LIKE '%${busca}%'`
+ 
+    conn.query(sql, function(err, data){
+        if(err){
+            console.log(err)
+            return
+        }
+
+        const listarEmpresa = data[0]
+        res.render('empresa', {  layout: false, listarEmpresa } )
+
+    })
+})
 
 // inserir dados (rota)
 app.post('/empresa/insertEmpresa', (req,res)=>{
@@ -141,23 +162,7 @@ app.get('/empresa/remove/:CNPJ', (req,res) =>{
     })
 })
 
-//rota de busca (busc) que enviar para view produto produto.handlebars
-app.post('/busc/', (req, res) => {
-    const CNPJ = req.body.CNPJ
-    
-    const sql = `SELECT * FROM empresa WHERE CNPJ = ${CNPJ}`
 
-    conn.query(sql, function(err, data){
-        if(err){
-            console.log(err)
-            return
-        }
-
-        const listarempresa = data[0]
-        res.render('empresa', {  layout: false, listarempresa } )
-
-    })
-})
     
     
 
