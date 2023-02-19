@@ -129,7 +129,6 @@ app.post('/alterar/updateEmpresa', (req,res) => {
 
     
     const { CNPJ, nome,email,telefone,local} = req.body
-    console.log("🚀 ~ file: index.js:111 ~ app.post ~ req.body", req.body)
 
     const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', local= '${local}' WHERE CNPJ = '${CNPJ}' `
 
