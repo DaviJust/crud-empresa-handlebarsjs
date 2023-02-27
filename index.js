@@ -42,7 +42,7 @@ app.post('/buscar/', (req, res) => {
     
     const {busca} = req.body
     
-    const sql = `SELECT * FROM empresa WHERE CNPJ = '${busca}' OR nome LIKE '%${busca}%'`
+    const sql = `SELECT * FROM empresa WHERE cnpj = '${busca}' OR nome LIKE '%${busca}%'`
  
     conn.query(sql, function(err, data){
         if(err){
@@ -58,9 +58,9 @@ app.post('/buscar/', (req, res) => {
 
 // inserir dados (rota)
 app.post('/empresa/insertEmpresa', (req,res)=>{
-    const { CNPJ, nome,email,telefone,local} = req.body
+    const { cnpj, nome,email,telefone,local} = req.body
     
-    const sql = `INSERT INTO empresa (CNPJ, nome, email, local, telefone) VALUES ( '${CNPJ}' ,'${nome}','${email}','${local}','${telefone}' )`
+    const sql = `INSERT INTO empresa (cnpj, nome, email, local, telefone) VALUES ( '${cnpj}' ,'${nome}','${email}','${local}','${telefone}' )`
     conn.query(sql, function(err){
         if (err){
             console.log(err)
@@ -89,10 +89,10 @@ app.get('/empresas', (req,res) => {
 
 
 // consuta um registro pelo id (empresa.handlebars)
-app.get('/empresa/:CNPJ', (req,res) => {
-    const CNPJ = req.params.CNPJ
+app.get('/empresa/:cnpj', (req,res) => {
+    const cnpj = req.params.cnpj
 
-    const sql = `SELECT * FROM empresa WHERE CNPJ = '${CNPJ}'`
+    const sql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -106,10 +106,10 @@ app.get('/empresa/:CNPJ', (req,res) => {
 
 //ROTA PARA MOSTRAR OS DADOS QUE SERAO EDITADOS  NO  REGISTRO (SEM A VIEW)
 
-app.get('/empresa/edit/:CNPJ', (req, res) =>{
-    const CNPJ = req.params.CNPJ 
+app.get('/empresa/edit/:cnpj', (req, res) =>{
+    const cnpj = req.params.cnpj 
 
-    const sql = `SELECT * FROM empresa WHERE CNPJ = '${CNPJ}'`
+    const sql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -127,10 +127,10 @@ app.get('/empresa/edit/:CNPJ', (req, res) =>{
 app.post('/alterar/updateEmpresa', (req,res) => {
 
     
-    const { CNPJ, nome,email,telefone,local} = req.body
+    const { cnpj, nome,email,telefone,local} = req.body
     
 
-    const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', local= '${local}' WHERE CNPJ = '${CNPJ}' `
+    const sql = `UPDATE empresa SET nome = '${nome}', email = '${email}', telefone = '${telefone}', local= '${local}' WHERE cnpj = '${cnpj}' `
 
     
     conn.query(sql, function(err){
@@ -139,16 +139,16 @@ app.post('/alterar/updateEmpresa', (req,res) => {
         }
 
         console.log("Alterado com sucesso")
-        res.redirect(`/empresa/${CNPJ}`)
+        res.redirect(`/empresa/${cnpj}`)
 })
 })
 
 //Remover empresa
 
-app.get('/empresa/remove/:CNPJ', (req,res) =>{
-    const CNPJ =req.params.CNPJ
+app.get('/empresa/remove/:cnpj', (req,res) =>{
+    const cnpj =req.params.cnpj
 
-    const sql = `DELETE FROM empresa WHERE CNPJ = '${CNPJ}' `
+    const sql = `DELETE FROM empresa WHERE cnpj = '${cnpj}' `
 
     conn.query(sql, function(err){
         if(err){
@@ -173,7 +173,7 @@ const conn = mysql.createConnection({
     port: '3306',
     user:'root',
     password: '',
-    database: 'infancia_girassol'
+    database: 'infanciagirassol'
 
 })
 
@@ -188,5 +188,5 @@ conn.connect(function(err) {
 
 // servidor
 app.listen(port, () => {
-    console.log(`App rodando ma porta ${port}`)
+    console.log(`App rodando na porta ${port}`)
 })

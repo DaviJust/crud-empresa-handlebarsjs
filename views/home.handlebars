@@ -1,30 +1,121 @@
-<h1>Cadastro de Empresas</h1>
-<hr>
-<form action="empresa/insertEmpresa" method="post">
-        <div class="form-control">
-            <label for="CNPJ" class="form-label">CNPJ</label>
-            <input type="number" name="CNPJ" class="form-control" id="CNPJ" t>
-          </div>
-        <div class="form-control">
-            <label for="Nome" class="form-label">Nome</label>
-            <input type="text" name="nome" class="form-control" id="Nome">
-          </div>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastrar Associados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/public/css/empresa.css">
+</head>
+
+<body>
+<a href="/empresas/"> Empresas cadastrados</a>
+
+  <a href="/busca">Buscar empresa cadastrada</a>
+
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+            <img src="/public/img/girassol.png" alt="girassol" class="center" width="120px" height="100px">
+        <img class="d-block mx-auto mb-4" src="/public/girassol.png"
+          alt="" width="72" height="72">
+        <h2>Cadastro de Empresas</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group
+          has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+      </div>
+      <form action="empresa/insertEmpresa" method="post">
+
+
         <div class="mb-3">
-          <label for="email" class="form-label">Email </label>
-          <input type="text"  name="email" class="form-control" id="email" aria-describedby="emailHelp">          
+          <label for="Nome" class="form-label">Nome</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required="">
+            <div class="invalid-feedback" style="width: 100%;">
+              Preencha seu Nome
+            </div>
+          </div>
         </div>
+
+
+
+
         <div class="mb-3">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" name="telefone" class="form-control" id="telefone">
+          <label for="cnpj">cnpj</label>
+          <div class="input-group">
+            <input type="text" placeholder="MM/YY" class="masked" pattern="(1[0-2]|0[1-9])\/(1[5-9]|2\d)" data-valid-example="05/18" type="number" class="form-control" name="cnpj" id="cnpj" placeholder="cnpj" required="">
+            <div class="invalid-feedback" style="width: 100%;">
+              Digite o cnpj.
+            </div>
           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted"></span></label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Digite o e-mail.
+          </div>
+        </div>
+
           <div class="mb-3">
-            <label for="local" class="form-label">Local</label>
-            <input type="text" name="local" class="form-control" id="local">
+          <label for="telefone">Telefone <span class="text-muted"></span></label>
+          <input type="telefone" class="form-control" name="telefone" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Digite o e-mail.
           </div>
-        <button type="submit" class="btn btn-primary" >Cadastrar</button>
-      </form>
+        </div>
 
-      <a href="/empresas/"> Empresas cadastrados</a>
+        <div class="mb-3">
+          <label for="local">Endereço</label>
+          <input type="text" class="form-control" id="local" name="local"
+            placeholder="R. Ewbank da Câmara, 91 - Madureira" required="">
+          <div class="invalid-feedback">
+            Digite o endereço.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
 
-      <a href="/busca">Buscar empresa cadastrada</a>
-</div>
+    </div>
+    </form>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
+
+  
+  </body>
+  {{!-- 
+  <hr>
+  <form action="empresa/insertEmpresa" method="post">
+    <div class="form-control">
+      <label for="cnpj" class="form-label">cnpj</label>
+      <input type="number" name="cnpj" class="form-control" id="cnpj" t>
+    </div>
+    <div class="form-control">
+      <label for="Nome" class="form-label">Nome</label>
+      <input type="text" name="nome" class="form-control" id="Nome">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email </label>
+      <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text" name="telefone" class="form-control" id="telefone">
+    </div>
+    <div class="mb-3">
+      <label for="local" class="form-label">Local</label>
+      <input type="text" name="local" class="form-control" id="local">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+
+  <a href="/empresas/"> Empresas cadastrados</a>
+
+  <a href="/busca">Buscar empresa cadastrada</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body> --}}
+
+</html>

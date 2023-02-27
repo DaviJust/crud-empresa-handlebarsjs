@@ -1,19 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastrar Associados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/public/css/empresa.css">
+</head>
 <h1>Informações da empresa</h1>
 
-<h1> {{listarEmpresa.nome}} </h1>
 
+<form>
+    <legend>Registro Da Empresa</legend>
+    <div class="mb-3">
+      <label class="form-label">CNPJ: {{listarEmpresa.cnpj}}</label>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Email: {{listarEmpresa.email}}</label>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Telefone: {{listarEmpresa.telefone}}</label>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Endereço: {{listarEmpresa.local}}</label>
+      </div>
+   
+</form>
 
-<p>CNPJ: {{listarEmpresa.CNPJ}} </p>
-
-<p>Email: {{listarEmpresa.email}} </p>
-
-<p>Telefone: {{listarEmpresa.telefone}} </p>
-
-<p> Local:  {{listarEmpresa.local}}  </p>
- 
-<a href="/empresa/edit/{{listarEmpresa.CNPJ}}"> EDITAR</a>
+<a href="/empresa/edit/{{listarEmpresa.cnpj}}"> EDITAR</a>
 
 <br> <br>
 
-<a href="/empresa/remove/{{listarEmpresa.CNPJ}}"> EXCLUIR</a>
+<a href="/empresa/remove/{{listarEmpresa.cnpj}}"> EXCLUIR</a>
 

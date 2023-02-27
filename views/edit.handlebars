@@ -1,9 +1,20 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastrar Associados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/public/css/empresa.css">
+</head>
+
+
 <h1> Editar Empresa</h1>
 <hr>
 
-<form action="/alterar/updateEmpresa" method="POST"> 
+<form action="/alterar/updateEmpresa" method="POST">
+
 <div class="form control">
-    <input type="hidden" name="CNPJ" id="CNPJ" value="{{empresa.CNPJ}}">
+    <input type="hidden" name="cnpj" id="cnpj" value="{{empresa.cnpj}}">
     <label for="nome">nome</label>
     <input type="text" name="nome" placeholder="Digite aqui o nome do empresa"
      value="{{empresa.nome}}">
@@ -22,7 +33,7 @@
 </div>
 
 <div class="form control">
-    <label for="local">local</label>
+    <label for="local">Endereço</label>
     <input type="text" name="local" placeholder="Digite aqui o local do empresa" 
     value="{{empresa.local}}">
 </div>
