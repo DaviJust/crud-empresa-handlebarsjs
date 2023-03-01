@@ -1,7 +1,11 @@
-body {
-    background-color: yellow;
+.largerForm {
+    width: 400px !important;
 }
 
-h1 {
-    color: yellow
+*{
+    color:black;
+    
+}
+.centerIcon{
+    margin-left: 520px;
 }

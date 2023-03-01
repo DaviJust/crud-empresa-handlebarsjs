@@ -11,8 +11,11 @@ const app = express()
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
-app.use(express.static('public'))
-
+app.get("/", (req, res) => {
+    res.render("home", { layout: false });
+    app.use(express.static(__dirname +  '/public'));
+  });
+  
 
 app.use(
     express.urlencoded({
@@ -170,7 +173,7 @@ app.get('/empresa/remove/:cnpj', (req,res) =>{
 // conexao banco de dados
 const conn = mysql.createConnection({
     host: 'localhost',    
-    port: '3306',
+    port: '3307',
     user:'root',
     password: '',
     database: 'infanciagirassol'

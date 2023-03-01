@@ -4,31 +4,77 @@
   <title>Cadastrar Associados</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="/public/css/empresa.css">
+  <link rel="stylesheet" href="/css/empresa.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/offcanvas/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/boostrap.css" rel="stylesheet">
+      <link rel="stylesheet" href="/css/empresa.css">
+
 </head>
-<h1>Informações da empresa</h1>
 
 
-<form>
-    <legend>Registro Da Empresa</legend>
-    <div class="mb-3">
-      <label class="form-label">CNPJ: {{listarEmpresa.cnpj}}</label>
-      </div>
-      <div class="mb-3">
-      <label class="form-label">Email: {{listarEmpresa.email}}</label>
-      </div>
-      <div class="mb-3">
-      <label class="form-label">Telefone: {{listarEmpresa.telefone}}</label>
-      </div>
-      <div class="mb-3">
-      <label class="form-label">Endereço: {{listarEmpresa.local}}</label>
-      </div>
-   
-</form>
+<body class="bg-light">
 
-<a href="/empresa/edit/{{listarEmpresa.cnpj}}"> EDITAR</a>
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/img/girassol.png" alt="" width="72" height="72">
+      <h2>Associados</h2>
+    </div>
 
-<br> <br>
 
-<a href="/empresa/remove/{{listarEmpresa.cnpj}}"> EXCLUIR</a>
+    <main role="main" class="container">
+      <div >
 
+
+
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+          <h6 class="border-bottom border-gray pb-2 mb-0">Empresas Cadastradas</h6>
+          <div class="mb-3">
+            <label class="form-label">CNPJ: {{listarEmpresa.cnpj}}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nome: {{listarEmpresa.nome}}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email: {{listarEmpresa.email}}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Telefone: {{listarEmpresa.telefone}}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Endereço: {{listarEmpresa.local}}</label>
+          </div>
+
+          <a class="centerIcon" href="/empresa/edit/{{listarEmpresa.cnpj}}"> <img src="/img/pencil-square.svg" alt=""> </a>
+
+          <a  class="" href="/empresa/remove/{{listarEmpresa.cnpj}}"> <img src="/img/x-square.svg" alt=""></a>
+
+        </div>
+
+
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <script src="offcanvas.js"></script>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="none"
+          style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+          <defs>
+            <style type="text/css"></style>
+          </defs><text x="0" y="2"
+            style="font-weight:bold;font-size:2pt;font-family:Arial, Helvetica, Open Sans, sans-serif">32x32</text>
+        </svg>
+</body>
