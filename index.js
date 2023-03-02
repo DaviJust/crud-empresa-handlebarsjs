@@ -173,7 +173,7 @@ app.get('/empresa/remove/:cnpj', (req,res) =>{
 // conexao banco de dados
 const conn = mysql.createConnection({
     host: 'localhost',    
-    port: '3307',
+    port: '3306',
     user:'root',
     password: '',
     database: 'infanciagirassol'
