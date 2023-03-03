@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/carousel/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/offcanvas/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/home/css/boostrap.css" rel="stylesheet">
+  <link href="/home/css/carousel.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <link rel="stylesheet" href="/home/css/home.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #f9ce07;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="https://cdn-icons-png.flaticon.com/512/5579/5579570.png"
+            width="50"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogoactionfigures">Action Figures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogobrinquedos">Brinquedos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogojogosdemesa">Jogos de Mesa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogogiftcard">Gift Cards</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/listadefuncionarios">Funcionário</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/listaempresas">Empresas</a>
+            </li>
+          </ul>
+          <form class="d-flex" action="/buscar/empresa/" method="post">
+            <input class="form-control me-2" type="search" name="busca" id="busca">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <a href="/listaempresas"> Empresas cadastrados</a>
+
+    <body class="bg-light">
+
+      <div class="container">
+        <div class="py-5 text-center">
+          <img class="d-block mx-auto mb-4" src="/empresa/img/girassol.png" alt="" width="72" height="72">
+          <h2>Cadastro de Empresas</h2>
+            </div>
+        <form action="empresa/insertEmpresa" method="post">
+          <div class="mb-3">
+            <label for="Nome" class="form-label">Nome</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="nome" id="nome" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                Preencha seu Nome
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="cnpj">CNPJ</label>
+            <div class="input-group">
+              <input type="text" type="number" class="form-control" name="cnpj" id="cnpj" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                Digite o cnpj.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email">Email <span class="text-muted"></span></label>
+            <input type="email" class="form-control" name="email" id="email">
+            <div class="invalid-feedback">
+              Digite o e-mail.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="telefone">Telefone <span class="text-muted"></span></label>
+            <input type="telefone" class="form-control" name="telefone" id="email">
+            <div class="invalid-feedback">
+              Digite o e-mail.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="local">Endereço</label>
+            <input type="text" class="form-control" id="local" name="local" required="">
+            <div class="invalid-feedback">
+              Digite o endereço.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+      </div>
+      </form>
+  </main>
+  <footer>
+    <div class="footergira">
+      <a href="/">
+        <div className='footerlogo'>
+          <img src="https://cdn-icons-png.flaticon.com/512/5579/5579570.png" width="110" height="100" />
+        </div>
+      </a>
+      <div className='redesocias'>
+        <h2>Nossas redes sociais</h2>
+        <a href="https://web.facebook.com">
+          <p>Facebook</p>
+        </a>
+        <a href="https://www.instagram.com">
+          <p>Instagram</p>
+        </a>
+        <a href="https://twitter.co ">
+          <p>Twitter</p>
+        </a>
+      </div>
+      <div className='contatos'>
+        <h2>Contatos</h2>
+        <p>(11) 4002-8922</p>
+        <p>(11) 4002-8922</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="/script/jquery-slim.min.js"><\/script>')</script>
+  <script src="/home/script/popper.min.js"></script>
+  <script src="/home/script/bootstrap.min.js"></script>
+  <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+  <script src="/home/script/holder.min.js"></script>
+
+</body>

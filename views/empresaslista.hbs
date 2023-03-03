@@ -1,0 +1,152 @@
+{{!-- <h1> Clientes cadastrados</h1>
+
+<class="prod-container">
+    {{#each listar}}
+
+    <strong>#{{this.cnpj}} </strong> -
+    Nome: <a href="/empresa/{{this.cnpj}}"> {{nome}} </a> - email: {{email}} - Telefone {{telefone}} - local {{local}}
+    <br>
+
+    {{/each}}
+    </div> --}}
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5579/5579570.png">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+        <title>Lista de empresas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/offcanvas/">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/empresa/css/boostrap.css" rel="stylesheet">
+        <link href="/empresa/css/empresa.css" rel="stylesheet">
+
+
+    <body class="bg-light">
+        <header>
+            <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #f9ce07;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><img src="https://cdn-icons-png.flaticon.com/512/5579/5579570.png"
+                            width="50"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogoactionfigures">Action Figures</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogobrinquedos">Brinquedos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogojogosdemesa">Jogos de Mesa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogogiftcard">Gift Cards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/listadefuncionarios">Funcionário</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/listaempresas">Empresas</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" action="/buscar/empresa/" method="post">
+                            <input class="form-control me-2" type="search" name="busca" id="busca">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <a href="/cadastroempresa">Ainda não faz parte da nossa equipe? Se cadastre aqui e entraremos em contato com você!</a>
+            <h1>Associados</h1>
+
+            <main role="main" class="container">
+                <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+                    <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h6 class="border-bottom border-gray pb-2 mb-0">Empresas Cadastradas</h6>
+                  
+                        {{#each listar}}
+                        <div class="media text-muted pt-3">
+                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32"
+                        class="mr-2 rounded" style="width: 32px; height: 32px;"
+                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18694725135%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18694725135%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                        data-holder-rendered="true">
+                        <strong class="d-block text-gray-dark">#{{this.cnpj}} </strong> -
+                        Nome: <a href="/empresa/{{this.cnpj}}"> {{nome}} </a> - email: {{email}} - Telefone {{telefone}}
+                        - Endereço {{local}}
+                    <hr>
+                    {{/each}}
+                </div>
+                <a>a</a>
+
+                        <!-- Bootstrap core JavaScript
+    ================================================== -->
+                        <!-- Placed at the end of the document so the pages load faster -->
+                        <script
+                            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                            crossorigin="anonymous"></script>
+                        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"></script>
+                        <script>window.jQuery || document.write('<script src="/script/jquery-slim.min.js"><\/script>')</script>
+                        <script src="/home/script/popper.min.js"></script>
+                        <script src="/home/script/bootstrap.min.js"></script>
+                        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+                        <script src="/home/script/holder.min.js"></script>
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                            preserveAspectRatio="none"
+                            style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+                            <defs>
+                                <style type="text/css"></style>
+                            </defs><text x="0" y="2"
+                                style="font-weight:bold;font-size:2pt;font-family:Arial, Helvetica, Open Sans, sans-serif">32x32</text>
+                        </svg>
+            </main>
+            <footer>
+                <div class="footergira">
+                    <a href="/">
+                        <div className='footerlogo'>
+                            <img src="https://cdn-icons-png.flaticon.com/512/5579/5579570.png" width="110"
+                                height="100" />
+                        </div>
+                    </a>
+                    <div className='redesocias'>
+                        <h2>Nossas redes sociais</h2>
+                        <a href="https://web.facebook.com">
+                            <p>Facebook</p>
+                        </a>
+                        <a href="https://www.instagram.com">
+                            <p>Instagram</p>
+                        </a>
+                        <a href="https://twitter.co ">
+                            <p>Twitter</p>
+                        </a>
+                    </div>
+                    <div className='contatos'>
+                        <h2>Contatos</h2>
+                        <p>(11) 4002-8922</p>
+                        <p>(11) 4002-8922</p>
+                    </div>
+                </div>
+            </footer>
+    </body>
